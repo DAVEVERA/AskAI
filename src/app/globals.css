@@ -1,0 +1,173 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background: #0f0f0f;
+  color: #e5e5e5;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+header p {
+  color: #9ca3af;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  min-height: 200px;
+}
+
+.message {
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.message.user {
+  background: #1e1e2e;
+  border: 1px solid #3b3b4f;
+  align-self: flex-end;
+  max-width: 80%;
+}
+
+.message.assistant {
+  background: #161622;
+  border: 1px solid #2d2d3d;
+  align-self: flex-start;
+  max-width: 90%;
+}
+
+.message.assistant .label {
+  font-size: 0.75rem;
+  color: #6366f1;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.message.error {
+  background: #1f1010;
+  border: 1px solid #4b1c1c;
+  color: #f87171;
+  align-self: stretch;
+}
+
+.form-area {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+
+textarea {
+  flex: 1;
+  background: #1a1a2e;
+  border: 1px solid #3b3b4f;
+  border-radius: 0.75rem;
+  color: #e5e5e5;
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 0.875rem 1rem;
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s;
+  min-height: 3rem;
+  max-height: 12rem;
+  overflow-y: auto;
+}
+
+textarea:focus {
+  border-color: #6366f1;
+}
+
+textarea::placeholder {
+  color: #4b5563;
+}
+
+button[type="submit"] {
+  background: #6366f1;
+  border: none;
+  border-radius: 0.75rem;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.875rem 1.5rem;
+  transition: background 0.2s, transform 0.1s;
+  white-space: nowrap;
+  height: 3rem;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background: #4f46e5;
+}
+
+button[type="submit"]:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+button[type="submit"]:disabled {
+  background: #3b3b4f;
+  cursor: not-allowed;
+  color: #6b7280;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6b7280;
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6366f1;
+  animation: bounce 1.2s infinite;
+}
+
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-6px); opacity: 1; }
+}
